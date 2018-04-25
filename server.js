@@ -10,10 +10,10 @@ const io = require('socket.io')(http);
 require('./io-events.js')(io);
 
 // static routing
-http.use(express.static('public'));
+app.use(express.static('public'));
 
 // redirect everything to homepage
 app.use((req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
 // listen on port 80
-app.listen(80, (t1, t2) => console.log('INFO:\tRunning on port 80.'));
+http.listen(80, (t1, t2) => console.log('INFO:\tRunning on port 80.'));
