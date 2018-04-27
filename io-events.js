@@ -1,5 +1,5 @@
 // socket.io events
-module.exports = (io, onerror) => {
+module.exports = (io, cookbook, onerror) => {
 
   // on connect say hi!
   io.on('connection', socket => {

@@ -10,12 +10,13 @@ module.exports = (cookbookPath, onerror) => {
     get: () => cookbookData,
 
     // add new recipe to cookbook
-    add: (name, description, images, url, ingredients, instructions) => {
+    add: (name, description, images, refUrl, ingredients, instructions) => {
       cookbookData.push({
         name: name,
+        path: name.toLowerCase().replace(/[^a-z ]/g, '').replace(' ', '-');
         description: description,
         images: images,
-        url: url,
+        refUrl: refUrl,
         ingredients: ingredients,
         instructions: instructions
       });

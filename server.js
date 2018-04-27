@@ -23,11 +23,10 @@ const onerror = err => err && console.error(`ERROR:\t${err}.`);
 
 // cookbook definitions
 const cookbook = require('./cookbook.js')('./data/cookbook.json', onerror);
-console.log(cookbook.get());
 
 // WEBSOCKET
 // socket.io
 const io = require('socket.io')(http);
 
 // socket.io events are located in external file
-require('./io-events.js')(io, onerror);
+require('./io-events.js')(io, cookbook, onerror);
