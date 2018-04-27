@@ -2,3 +2,4 @@ node_modules
 public/assets/raw
 serve
 nohup.out
+.*.swp
