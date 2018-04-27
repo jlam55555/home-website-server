@@ -14,15 +14,15 @@ app.use((req, res) => res.sendFile(`${__dirname}/public/index.html`));
 http.listen(80, (t1, t2) => console.log('INFO:\tRunning on port 80.'));
 
 
-// RECIPES (FILE I/O)
-// file io (for recipes json)
-const fs = require('fs');
-
+// CONVENIENCE FUNCTIONS
 // convenience function to print errors
 const onerror = err => err && console.error(`ERROR:\t${err}.`);
 
+
+// RECIPES
 // cookbook definitions
 const cookbook = require('./cookbook.js')('./data/cookbook.json', onerror);
+
 
 // WEBSOCKET
 // socket.io
