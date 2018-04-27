@@ -13,7 +13,7 @@ module.exports = (cookbookPath, onerror) => {
     add: (name, description, images, refUrl, ingredients, instructions) => {
       cookbookData.push({
         name: name,
-        path: name.toLowerCase().replace(/[^a-z ]/g, '').replace(' ', '-');
+        path: name.toLowerCase().replace(/[^a-z ]/g, '').replace(' ', '-'),
         description: description,
         images: images,
         refUrl: refUrl,
