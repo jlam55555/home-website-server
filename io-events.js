@@ -31,6 +31,11 @@ module.exports = (io, cookbook, onerror) => {
 
     console.log('INFO:\tA user has connected.');
 
+    // get all recipe data
+    socket.on('getRecipes', callback => {
+      callback(cookbook.get());
+    });    
+
     // create recipe
     socket.on('createRecipe', (data, callback) => {
 
@@ -74,7 +79,7 @@ module.exports = (io, cookbook, onerror) => {
         ingredient.amount.checkRangeExclusive(0, Infinity, 'All recipe amounts', m => errors.ingredients = m);
       }
       for(let instruction of data.instructions) {
-        instruction.checkLength(1, 64, 'All instructions', m => errors.instructions = m);
+        instruction.checkLength(1, 512, 'All instructions', m => errors.instructions = m);
       }
 
       // if errors return
